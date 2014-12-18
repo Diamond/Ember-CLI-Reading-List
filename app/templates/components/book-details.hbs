@@ -14,5 +14,11 @@
   <div>
     <p>{{book.review}}</p>
   </div>
+
+  <span>
+    {{#link-to 'genre' book.genre class="label label-primary"}}
+      {{book.genre.name}}
+    {{/link-to}}
+  </span>
 </div>
 

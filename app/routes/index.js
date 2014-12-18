@@ -2,6 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function() {
-    return this.store.find('book');
+    return Ember.RSVP.hash({
+      books: this.store.find('book'),
+      genres: this.store.find('genre')
+    });
+  },
+  setupController: function(controller, model) {
+    controller.set('books', model.books);
+    controller.set('genres', model.genres);
   }
 });
