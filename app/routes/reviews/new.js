@@ -12,7 +12,7 @@ export default Ember.Route.extend({
     controller.set('genres', model.genres);
   },
   actions: {
-    willTransition: function() {
+    willTransition: function(transition) {
       if (this.currentModel.book.get('isNew')) {
         if (confirm("Are you sure yo want to abandon progress?")) {
           this.currentModel.book.destroyRecord();
